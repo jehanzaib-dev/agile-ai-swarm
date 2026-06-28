@@ -36,7 +36,7 @@ export default function Dashboard({ setBlueprint, isGenerating, setIsGenerating 
       <form onSubmit={handleSubmit} className="promptForm">
         <div className="inputGroup">
           <input type='text'
-            placeholder="Describe your business vision or startup idea..."
+            placeholder="Describe the business you want to start..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             disabled={isGenerating}
