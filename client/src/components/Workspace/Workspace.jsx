@@ -548,8 +548,6 @@ export default function Workspace({ blueprint }) {
 
   </section>
 
-  {/* NEXT 90 DAYS */}
-
   <section className="workspaceSection">
 
     <h4>90-Day Action Plan</h4>
