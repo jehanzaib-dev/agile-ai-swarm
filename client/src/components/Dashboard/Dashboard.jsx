@@ -41,7 +41,6 @@ export default function Dashboard({ setBlueprint, isGenerating, setIsGenerating 
             onChange={(e) => setPrompt(e.target.value)}
             disabled={isGenerating}
             className="promptTextarea"
-            rows={3}
           />
         </div>
 
