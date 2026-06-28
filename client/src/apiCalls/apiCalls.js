@@ -6,6 +6,7 @@ const API = axios.create({
     "Content-Type": "application/json",
   },
 });
+console.log(import.meta.env.VITE_API_URL);
 export const generateBlueprintCall = async (prompt) => {
   const response = await API.post("/api/v1/ai/generate", { prompt });
   return response.data;
