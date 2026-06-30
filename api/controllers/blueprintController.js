@@ -44,7 +44,7 @@ export const generateBlueprint = async (req, res) => {
     return res.status(500).json({
       success: false,
       message:
-        "Unable to generate the business blueprint at the moment. Please try again shortly.",
+        "Unable to connect to AI models at the moment. Please try again shortly.",
       error: error.message,
     });
   }
