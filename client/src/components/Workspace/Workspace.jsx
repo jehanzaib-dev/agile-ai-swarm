@@ -4,170 +4,100 @@ import "./Workspace.css";
 export default function Workspace({ blueprint }) {
   const [activeTab, setActiveTab] = useState("marketing");
 
-  const {
-    marketing,
-    operations,
-    finance,
-    strategy,
-  } = blueprint;
+  const { marketing, operations, finance, strategy } = blueprint;
 
   return (
-    <div className="workspaceContainer">
-
+  <div className="workspaceContainer">
       {/* =========================
           TAB NAVIGATION
       ========================== */}
 
-      <div className="tabBar">
-
-        <button
-          className={`tabBtn ${
-            activeTab === "marketing" ? "active" : ""
-          }`}
+    <div className="tabBar">
+      <button className={`tabBtn ${activeTab === "marketing" ? "active" : ""}`}
           onClick={() => setActiveTab("marketing")}
         >
           📢 Marketing
-        </button>
+      </button>
 
-        <button
-          className={`tabBtn ${
-            activeTab === "operations" ? "active" : ""
-          }`}
+      <button className={`tabBtn ${activeTab === "operations" ? "active" : ""}`}
           onClick={() => setActiveTab("operations")}
         >
           ⚙️ Operations
         </button>
 
-        <button
-          className={`tabBtn ${
-            activeTab === "finance" ? "active" : ""
-          }`}
+      <button className={`tabBtn ${activeTab === "finance" ? "active" : ""}`}
           onClick={() => setActiveTab("finance")}
         >
           💰 Finance
         </button>
 
-        <button
-          className={`tabBtn ${
-            activeTab === "strategy" ? "active" : ""
-          }`}
+      <button className={`tabBtn ${activeTab === "strategy" ? "active" : ""}`}
           onClick={() => setActiveTab("strategy")}
         >
           🚀 Strategy
-        </button>
+      </button>
+    </div>
 
-      </div>
-
-      <div className="tabContent">
-
+    <div className="tabContent">
         {/* =====================================================
             MARKETING TAB
         ===================================================== */}
-
-        {activeTab === "marketing" && (
-
-          <div className="agentView animateFade">
-
+      {activeTab === "marketing" && (
+        <div className="agentView animateFade">
             {/* BUSINESS SUMMARY */}
-
-            <section className="workspaceSection">
-
-              <h4>Business Summary</h4>
-
-              <div className="summaryCard">
-                <p>{marketing?.businessSummary}</p>
-              </div>
-
-            </section>
+          <section className="workspaceSection">
+            <h4>Business Summary</h4>
+            <div className="summaryCard">
+              <p>{marketing?.businessSummary}</p>
+            </div>
+          </section>
 
             {/* TARGET AUDIENCE */}
-
-            <section className="workspaceSection">
-
-              <h4>Target Audience</h4>
-
-              <div className="cardGrid">
-
-                {marketing?.targetAudience?.map((item, index) => (
-
-                  <div
-                    key={index}
-                    className="infoCard"
-                  >
-                    <span className="cardNumber">
-                      {index + 1}
-                    </span>
+          <section className="workspaceSection">
+            <h4>Target Audience</h4>
+            <div className="cardGrid">
+              {marketing?.targetAudience?.map((item, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">{index + 1}</span>
 
                     <p>{item}</p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
 
             {/* BRAND IDEAS */}
 
             <section className="workspaceSection">
-
               <h4>Brand Ideas</h4>
 
               <div className="brandGrid">
-
                 {marketing?.brandIdeas?.map((brand, index) => (
-
-                  <div
-                    key={index}
-                    className="brandCard"
-                  >
-
+                  <div key={index} className="brandCard">
                     <h5>{brand.name}</h5>
 
                     <p>{brand.tagline}</p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
 
             {/* MARKETING STRATEGY */}
 
             <section className="workspaceSection">
-
               <h4>Marketing Strategy</h4>
 
               <div className="timeline">
-
                 {marketing?.marketingStrategy?.map((step, index) => (
+                  <div key={index} className="timelineItem">
+                    <div className="timelineBadge">{index + 1}</div>
 
-                  <div
-                    key={index}
-                    className="timelineItem"
-                  >
-
-                    <div className="timelineBadge">
-                      {index + 1}
-                    </div>
-
-                    <div className="timelineContent">
-                      {step}
-                    </div>
-
+                    <div className="timelineContent">{step}</div>
                   </div>
-
                 ))}
-
               </div>
-
             </section>
-
           </div>
-
         )}
 
         {/* =====================================================
@@ -175,420 +105,228 @@ export default function Workspace({ blueprint }) {
         ===================================================== */}
 
         {activeTab === "operations" && (
-
           <div className="agentView animateFade">
-
             {/* BUSINESS SETUP */}
 
             <section className="workspaceSection">
-
               <h4>Business Setup</h4>
 
               <div className="cardGrid">
-
                 {operations?.businessSetup?.map((item, index) => (
-
-                  <div
-                    key={index}
-                    className="infoCard"
-                  >
-
-                    <span className="cardNumber">
-                      {index + 1}
-                    </span>
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">{index + 1}</span>
 
                     <p>{item}</p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
 
             {/* REQUIRED RESOURCES */}
 
             <section className="workspaceSection">
-
               <h4>Required Resources</h4>
 
               <div className="cardGrid">
-
                 {operations?.requiredResources?.map((item, index) => (
-
-                  <div
-                    key={index}
-                    className="infoCard"
-                  >
-
-                    <span className="cardNumber">
-                      {index + 1}
-                    </span>
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">{index + 1}</span>
 
                     <p>{item}</p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
 
             {/* LAUNCH CHECKLIST */}
 
             <section className="workspaceSection">
-
               <h4>Launch Checklist</h4>
 
               <div className="checklist">
-
                 {operations?.launchChecklist?.map((step, index) => (
-
-                  <div
-                    key={index}
-                    className="checkItem"
-                  >
-
-                    <div className="checkCircle">
-                      ✓
-                    </div>
+                  <div key={index} className="checkItem">
+                    <div className="checkCircle">✓</div>
 
                     <span>{step}</span>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
 
             {/* POSSIBLE CHALLENGES */}
 
             <section className="workspaceSection">
-
               <h4>Possible Challenges</h4>
 
               <div className="warningGrid">
-
                 {operations?.possibleChallenges?.map((challenge, index) => (
-
-                  <div
-                    key={index}
-                    className="warningCard"
-                  >
-
+                  <div key={index} className="warningCard">
                     <span>⚠️</span>
 
                     <p>{challenge}</p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </section>
-
           </div>
-
         )}
-                {/* =====================================================
+        {/* =====================================================
             FINANCE TAB
         ===================================================== */}
 
-{activeTab === "finance" && (
+        {activeTab === "finance" && (
+          <div className="agentView animateFade">
+            {/* STARTUP BUDGET */}
 
-<div className="agentView animateFade">
+            <section className="workspaceSection">
+              <h4>Estimated Startup Budget</h4>
 
-  {/* STARTUP BUDGET */}
+              <div className="cardGrid">
+                {finance?.startupBudget?.map((item, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">💵</span>
 
-  <section className="workspaceSection">
+                    <h5>{item.category}</h5>
 
-  <h4>Estimated Startup Budget</h4>
+                    <h3>{item.estimatedCost}</h3>
 
-  <div className="cardGrid">
+                    <p>{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-    {finance?.startupBudget?.map((item, index) => (
+            {/* REVENUE STREAMS */}
 
-      <div
-        key={index}
-        className="infoCard"
-      >
+            <section className="workspaceSection">
+              <h4>Revenue Streams</h4>
 
-        <span className="cardNumber">
-          💵
-        </span>
+              <div className="cardGrid">
+                {finance?.revenueStreams?.map((item, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">💰</span>
 
-        <h5>{item.category}</h5>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-        <h3>{item.estimatedCost}</h3>
+            {/* PRICING */}
 
-        <p>{item.description}</p>
+            <section className="workspaceSection">
+              <h4>Pricing Suggestions</h4>
 
-      </div>
+              <div className="timeline">
+                {finance?.pricingSuggestions?.map((item, index) => (
+                  <div key={index} className="timelineItem">
+                    <div className="timelineBadge">{index + 1}</div>
 
-    ))}
+                    <div className="timelineContent">{item}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-  </div>
+            {/* GROWTH */}
 
-</section>
+            <section className="workspaceSection">
+              <h4>Growth Opportunities</h4>
 
-  {/* REVENUE STREAMS */}
+              <div className="cardGrid">
+                {finance?.growthOpportunities?.map((item, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">📈</span>
 
-  <section className="workspaceSection">
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-    <h4>Revenue Streams</h4>
+            {/* FINANCIAL TIPS */}
 
-    <div className="cardGrid">
+            <section className="workspaceSection">
+              <h4>Financial Tips</h4>
 
-      {finance?.revenueStreams?.map((item, index) => (
+              <div className="tipGrid">
+                {finance?.financialTips?.map((tip, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">💵</span>
 
-        <div
-          key={index}
-          className="infoCard"
-        >
-
-          <span className="cardNumber">
-            💰
-          </span>
-
-          <p>{item}</p>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </section>
-
-  {/* PRICING */}
-
-  <section className="workspaceSection">
-
-    <h4>Pricing Suggestions</h4>
-
-    <div className="timeline">
-
-      {finance?.pricingSuggestions?.map((item, index) => (
-
-        <div
-          key={index}
-          className="timelineItem"
-        >
-
-          <div className="timelineBadge">
-
-            {index + 1}
-
+                    <p>{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
+        )}
 
-          <div className="timelineContent">
-
-            {item}
-
-          </div>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </section>
-
-  {/* GROWTH */}
-
-  <section className="workspaceSection">
-
-    <h4>Growth Opportunities</h4>
-
-    <div className="cardGrid">
-
-      {finance?.growthOpportunities?.map((item, index) => (
-
-        <div
-          key={index}
-          className="infoCard"
-        >
-
-          <span className="cardNumber">
-
-            📈
-
-          </span>
-
-          <p>{item}</p>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </section>
-
-  {/* FINANCIAL TIPS */}
-
-  <section className="workspaceSection">
-
-    <h4>Financial Tips</h4>
-
-    <div className="tipGrid">
-    {finance?.financialTips?.map((tip, index) => (
-
-<div
-  key={index}
-  className="infoCard"
->
-
-  <span className="cardNumber">
-    💵
-  </span>
-
-  <p>{tip}</p>
-
-</div>
-
-))}
-      
-
-    </div>
-
-  </section>
-
-</div>
-
-)}
-
-{/* =====================================================
+        {/* =====================================================
   STRATEGY TAB
 ===================================================== */}
 
-{activeTab === "strategy" && (
+        {activeTab === "strategy" && (
+          <div className="agentView animateFade">
+            {/* BUSINESS MODEL */}
 
-<div className="agentView animateFade">
+            <section className="workspaceSection">
+              <h4>Business Model</h4>
 
-  {/* BUSINESS MODEL */}
+              <div className="summaryCard">
+                <p>{strategy?.businessModel}</p>
+              </div>
+            </section>
 
-  <section className="workspaceSection">
+            {/* COMPETITIVE ADVANTAGES */}
 
-    <h4>Business Model</h4>
+            <section className="workspaceSection">
+              <h4>Competitive Advantages</h4>
 
-    <div className="summaryCard">
+              <div className="cardGrid">
+                {strategy?.competitiveAdvantages?.map((item, index) => (
+                  <div key={index} className="infoCard">
+                    <span className="cardNumber">⭐</span>
 
-      <p>{strategy?.businessModel}</p>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-    </div>
+            {/* RISKS */}
 
-  </section>
+            <section className="workspaceSection">
+              <h4>Business Risks</h4>
 
-  {/* COMPETITIVE ADVANTAGES */}
+              <div className="warningGrid">
+                {strategy?.risks?.map((risk, index) => (
+                  <div key={index} className="warningCard">
+                    <span>🚨</span>
 
-  <section className="workspaceSection">
+                    <p>{risk}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-    <h4>Competitive Advantages</h4>
+            <section className="workspaceSection">
+              <h4>90-Day Action Plan</h4>
 
-    <div className="cardGrid">
+              <div className="timeline">
+                {strategy?.next90DaysPlan?.map((step, index) => (
+                  <div key={index} className="timelineItem">
+                    <div className="timelineBadge">{index + 1}</div>
 
-      {strategy?.competitiveAdvantages?.map((item, index) => (
-
-        <div
-          key={index}
-          className="infoCard"
-        >
-
-          <span className="cardNumber">
-
-            ⭐
-
-          </span>
-
-          <p>{item}</p>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </section>
-
-  {/* RISKS */}
-
-  <section className="workspaceSection">
-
-    <h4>Business Risks</h4>
-
-    <div className="warningGrid">
-
-      {strategy?.risks?.map((risk, index) => (
-
-        <div
-          key={index}
-          className="warningCard"
-        >
-
-          <span>
-
-            🚨
-
-          </span>
-
-          <p>{risk}</p>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </section>
-
-  <section className="workspaceSection">
-
-    <h4>90-Day Action Plan</h4>
-
-    <div className="timeline">
-
-      {strategy?.next90DaysPlan?.map((step, index) => (
-
-        <div
-          key={index}
-          className="timelineItem"
-        >
-
-          <div className="timelineBadge">
-
-            {index + 1}
-
+                    <div className="timelineContent">{step}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
-
-          <div className="timelineContent">
-
-            {step}
-
-          </div>
-
-        </div>
-
-      ))}
-
+        )}
+      </div>
     </div>
-
-  </section>
-
-</div>
-
-)}
-
-</div>
-
-</div>
-
-);
-
+  );
 }
